@@ -31,7 +31,7 @@ From the root directory of the `hedera-future-world` project CD (change director
 cd hts
 ```
 
-If you completed a previous example in the series you can use to go back to the root directory and cd into this example.
+If you completed a previous example in the series, you can go back to the root directory and cd into this example.
 
 ```bash
 cd ../hts
@@ -49,7 +49,7 @@ You can follow along through the code walkthrough or skip ahead to execute the p
 
 ## Step 2: Guided Code Walkthrough
 
-Open the HTS token script (`/hts/script-hts-ft...`) in a code editor like [VS Code](https://code.visualstudio.com/), [IntelliJ](https://www.jetbrains.com/idea/), or a [Gitpod](https://gitpod.io/) instance. The imports at the top include modules for interacting with the Hedera network via the SDK. The `@hashgraph/sdk` enables account management and transactions like creating a token while the `dotenv` package loads environment variables from the `.env` file, such as the operator account ID, private key, and name variables.
+Open the HTS token script (`/hts/script-hts-ft...`) in a code editor like [VS Code](https://code.visualstudio.com/), [IntelliJ](https://www.jetbrains.com/idea/), or a [Gitpod](https://gitpod.io/) instance. The imports at the top include modules for interacting with the Hedera network via the SDK. The `@hashgraph/sdk` enables account management and transactions like creating a token, while the `dotenv` package loads environment variables from the `.env` file, such as the operator account ID, private key, and name variables.
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -187,7 +187,7 @@ To set up your Hedera Testnet client, create the client and configure the operat
 {% tab title="JavaScript" %}
 {% code title="script-hts-ft.js" %}
 ```javascript
-// The client operator ID and key is the account that will be automatically set to pay for the transaction fees for each transaction
+// The client operator ID and key are the account that will be automatically set to pay for the transaction fees for each transaction
 client = Client.forTestnet().setOperator(operatorId, operatorKey);
 
 //Set the default maximum transaction fee (in Hbar)
@@ -202,7 +202,7 @@ client.setDefaultMaxQueryPayment(new Hbar(50));
 {% tab title="Java" %}
 {% code title="ScriptHtsFt.java" %}
 ```java
-// The client operator ID and key is the account that will be automatically set to pay for the transaction fees for each transaction
+// The client operator ID and key are the account that will be automatically set to pay for the transaction fees for each transaction
 Client client = Client.forTestnet().setOperator(operatorId, operatorKey);
 
 //Set the default maximum transaction fee (in HBAR)
@@ -217,7 +217,7 @@ client.setDefaultMaxQueryPayment(new Hbar(50));
 {% tab title="Go" %}
 {% code title="" %}
 ```go
-// The client operator ID and key is the account that will be automatically set to pay for the transaction fees for each transaction
+// The client operator ID and key are the account that will be automatically set to pay for the transaction fees for each transaction
 client := hedera.ClientForTestnet()
 client.SetOperator(operatorId, operatorKey)
 
@@ -305,7 +305,7 @@ const tokenCreateTx = await new TokenCreateTransaction()
     .setInitialSupply(1000000)
     // Configure token access permissions: treasury account, admin, freezing
     .setTreasuryAccountId(operatorId)
-    //Set the admin key of the the token to the operator account
+    //Set the admin key of the token to the operator account
     .setAdminKey(operatorKey) 
     //Set the freeze default value to false
     .setFreezeDefault(false)
@@ -323,7 +323,7 @@ logger.log('The token create transaction ID: ', tokenCreateTxId.toString());
 {% tab title="Java" %}
 {% code title="ScriptHtsFt.java" %}
 ```java
-// Create a HTS token create transaction
+// Create an HTS token create transaction
 TokenCreateTransaction tokenCreateTx = new TokenCreateTransaction()
      //Set the transaction memo
      .setTransactionMemo("Hello Future World token - xyz")
@@ -390,7 +390,7 @@ fmt.Printf("The token create transaction ID: %s\n", tokenCreateTxId.String())
 * **Token Symbol**: This is the abbreviation of the token's name. For example, "SGD".
 * **Decimals**: This is the number of decimal places the currency uses. For example, `2` mimics "cents", where the smallest unit of the token is 0.01 (1/100) of a single token.
 * **Initial Supply**: This is the number of units of the token to "mint" when first creating the token. Note that this is specified in the smallest units, so `1_000_000` initial supply when decimals is 2, results in `10_000` full units of the token being minted. It might be easier to think about it as "one million cents equals ten thousand dollars".
-* **Treasury Account ID**: This is the account for which the initial supply of the token is credited. For example, using `operatorId` in this examplewould mean that your specified testnet account receives all the tokens when they are minted.
+* **Treasury Account ID**: This is the account for which the initial supply of the token is credited. For example, using `operatorId` in this example would mean that your specified testnet account receives all the tokens when they are minted.
 * [**Admin Key**](https://docs.hedera.com/hedera/sdks-and-apis/sdks/token-service/define-a-token#token-properties): This is the key that is authorized to administrate this token. For example, using `operatorKey` would mean that your testnet account key would authorize (required to sign related transactions) to perform actions such as minting additional supply.
 
 </details>
@@ -462,7 +462,7 @@ fmt.Printf("Token ID: %s\n", tokenId.String())
 
 ### Query the Account Token Balance Mirror Node API
 
-Mirror nodes store the history of transactions that took place on the network. To query the token balance of your account, use the Mirror Node API with the path `/api/v1/tokens/{tokenId}`. This API endpoint allows you to get the balance information about a specific token by replacing `{tokenId}` with your actual token ID. Since the treasury account was configured as your own account, it will hold the entire initial supply of the token.
+Mirror nodes store the history of transactions that took place on the network. To query the token balance of your account, use the Mirror Node API with the path `/api/v1/tokens/{tokenId}`. This API endpoint allows you to get the balance information about a specific token by replacing `{tokenId}` with your actual token ID. Since the treasury account was configured as your account, it will hold the entire initial supply of the token.
 
 * Specify `tokenId` within the URL path
 
@@ -547,7 +547,7 @@ Using account: 0.0.1455
 
 🟣 Creating new HTS token  …
 ↪️ file:///workspace/hello-future-world-x/hts/script-hts-ft...
-The token create transaction ID:  0.0.46495@1722971043.397070956
+The token creates a transaction ID:  0.0.46495@1722971043.397070956
 tokenId: 0.0.5878530 
 
 🟣 View the token on HashScan  …
